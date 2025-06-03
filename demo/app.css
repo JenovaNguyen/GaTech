@@ -1,12 +1,49 @@
-body{margin:0;font-family:'Segoe UI',sans-serif;background:#f3f3f3;display:flex;align-items:center;justify-content:center;height:100vh}
-.auth-wrapper{background:#fff;padding:40px 32px;width:320px;box-shadow:0 2px 6px rgba(0,0,0,.1);border-radius:6px;text-align:center}
-.logo{width:100px;margin-bottom:24px}
-.title{font-size:20px;font-weight:600;color:#1b1b1b}
-.input{padding:10px;width:100%;border:1px solid #888;border-radius:4px;font-size:14px}
-.btn{width:100%;padding:10px;color:#fff;background:#0067b8;border:none;border-radius:4px;font-size:15px;font-weight:600;cursor:pointer}
-.btn-sec{background:#d0d0d0;color:#000}
-.mb-16{margin-bottom:16px}
-.w-100{width:100%}
-.error{color:#c50f1f}
-.d-none{display:none}
-.btn-group{display:flex;gap:12px}
+/* basic neutral palette */
+:root {
+  --primary: #2563eb;   /* blue-500 */
+  --primary-dark: #1e40af;
+  --grey-10: #f4f4f5;
+  --grey-60: #52525b;
+  --danger: #b91c1c;
+}
+
+* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+
+body {
+  margin: 0; background: var(--grey-10);
+  display: flex; justify-content: center; align-items: center; min-height: 100vh;
+}
+
+.auth-box {
+  width: 320px; background: #fff; padding: 40px 32px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12); border-radius: 6px; text-align: center;
+}
+
+.title { font-size: 22px; font-weight: 600; margin: 0 0 24px; color: var(--grey-60); }
+
+.input {
+  width: 100%; padding: 10px; margin-bottom: 16px;
+  border: 1px solid #9ca3af; border-radius: 4px; font-size: 14px;
+}
+.input.error { border-color: var(--danger); }
+
+.btn {
+  width: 100%; padding: 10px; border: none; border-radius: 4px;
+  font-size: 15px; font-weight: 600; cursor: pointer;
+}
+.btn-primary   { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: #d1d5db; color: #111827; }
+
+.btn-row { display: flex; gap: 12px; }
+
+.back {
+  background: none; border: none; color: var(--grey-60);
+  font-size: 14px; cursor: pointer; text-align: left; margin-bottom: 16px;
+}
+
+.error { color: var(--danger); font-size: 13px; height: 16px; }
+
+.hidden { display: none; }
+
+.identity { font-size: 14px; color: var(--grey-60); margin-bottom: 16px; }
